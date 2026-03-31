@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-severity-high: #ef4444;
+  --color-severity-medium: #f59e0b;
+  --color-severity-low: #eab308;
+}
