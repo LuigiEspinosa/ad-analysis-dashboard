@@ -1,0 +1,190 @@
+{
+  "analyses": [
+    {
+      "id": "analysis-001",
+      "adTitle": "Protecting Our Community's Future",
+      "advertiser": "Citizens for Progress PAC",
+      "dateAnalyzed": "2026-03-15T14:30:00Z",
+      "overallScore": 72,
+      "dimensions": {
+        "hook": 85,
+        "credibility": 58,
+        "emotionalAppeal": 79,
+        "memorability": 68,
+        "shareability": 71
+      },
+      "adText": "Our children deserve better schools, safer streets, and a future they can believe in. For too long, career politicians have ignored the voices of working families while giving tax breaks to corporations that ship jobs overseas. Maria Gonzalez grew up right here in District 12. She worked her way through community college, taught at Lincoln High for fifteen years, and coached the girls' basketball team to three state championships. She knows what it means to fight for this community because she IS this community. On day one, Maria will introduce the Community Investment Act — a bold plan to redirect corporate tax loopholes into school funding, affordable childcare, and job training programs. Washington insiders say it can't be done. Maria has spent her whole life proving people wrong. This November, vote for someone who actually lives in your neighborhood, shops at your grocery store, and sends her kids to your schools. Vote Maria Gonzalez for Congress.",
+      "flags": [
+        {
+          "id": "flag-001",
+          "text": "career politicians have ignored the voices of working families",
+          "start": 98,
+          "end": 159,
+          "severity": "medium",
+          "dimension": "credibility",
+          "suggestion": "This claim is broad and unsubstantiated. Consider citing a specific vote, policy, or statistic to strengthen credibility."
+        },
+        {
+          "id": "flag-002",
+          "text": "giving tax breaks to corporations that ship jobs overseas",
+          "start": 166,
+          "end": 222,
+          "severity": "high",
+          "dimension": "credibility",
+          "suggestion": "Strong claim without evidence. Specify which tax policy or provide data on jobs moved overseas to avoid fact-check vulnerability."
+        },
+        {
+          "id": "flag-003",
+          "text": "a bold plan to redirect corporate tax loopholes into school funding, affordable childcare, and job training programs",
+          "start": 513,
+          "end": 629,
+          "suggestion": "Policy sounds aspirational but lacks specifics. How much funding? Which loopholes? Voters and journalists will ask for details.",
+          "severity": "medium",
+          "dimension": "credibility"
+        },
+        {
+          "id": "flag-004",
+          "text": "Washington insiders say it can't be done",
+          "start": 631,
+          "end": 670,
+          "severity": "low",
+          "dimension": "hook",
+          "suggestion": "Effective us-vs-them framing but consider attributing to a real source for authenticity."
+        },
+        {
+          "id": "flag-005",
+          "text": "shops at your grocery store, and sends her kids to your schools",
+          "start": 782,
+          "end": 845,
+          "severity": "low",
+          "dimension": "emotionalAppeal",
+          "suggestion": "Strong local connection appeal. Verify these details are literally true to avoid opposition research vulnerability."
+        }
+      ]
+    },
+    {
+      "id": "analysis-002",
+      "adTitle": "The Record Is Clear",
+      "advertiser": "Restore Common Sense Fund",
+      "dateAnalyzed": "2026-03-18T09:15:00Z",
+      "overallScore": 54,
+      "dimensions": {
+        "hook": 45,
+        "credibility": 72,
+        "emotionalAppeal": 42,
+        "memorability": 51,
+        "shareability": 60
+      },
+      "adText": "In 2024, Representative Tom Butler voted against the bipartisan infrastructure bill that would have brought $40 million to our district for road repairs and bridge safety. He voted against capping insulin prices at $35, a measure that would have saved 12,000 seniors in our district an average of $800 per year. And when the wildfire relief package came to the floor — the same week flames threatened homes in Cedar Valley — Tom Butler voted no. His voting record is public. His priorities are clear. They're just not ours. This November, we can do better. Support the candidate who shows up when it counts.",
+      "flags": [
+        {
+          "id": "flag-006",
+          "text": "voted against the bipartisan infrastructure bill that would have brought $40 million to our district",
+          "start": 38,
+          "end": 137,
+          "severity": "low",
+          "dimension": "credibility",
+          "suggestion": "Strong factual claim with a specific dollar amount. Verify the $40M figure is from a credible source (CBO score, official estimate)."
+        },
+        {
+          "id": "flag-007",
+          "text": "capping insulin prices at $35, a measure that would have saved 12,000 seniors in our district an average of $800 per year",
+          "start": 162,
+          "end": 283,
+          "severity": "low",
+          "dimension": "credibility",
+          "suggestion": "Highly specific and verifiable. Excellent use of local data. Ensure the 12,000 figure comes from district-level CMS or census data."
+        },
+        {
+          "id": "flag-008",
+          "text": "the same week flames threatened homes in Cedar Valley",
+          "start": 345,
+          "end": 399,
+          "severity": "medium",
+          "dimension": "emotionalAppeal",
+          "suggestion": "Powerful timing connection but verify the exact timeline. If the vote was weeks before the fire, opposition will call this misleading."
+        },
+        {
+          "id": "flag-009",
+          "text": "His priorities are clear. They're just not ours.",
+          "start": 435,
+          "end": 483,
+          "severity": "low",
+          "dimension": "memorability",
+          "suggestion": "Clean, memorable line. Could work well as a social media pull quote or ad tagline."
+        },
+        {
+          "id": "flag-010",
+          "text": "Support the candidate who shows up when it counts",
+          "start": 522,
+          "end": 571,
+          "severity": "medium",
+          "dimension": "hook",
+          "suggestion": "Call to action is vague — doesn't name the alternative candidate. Voters may not know who to support. Consider adding a name."
+        }
+      ]
+    },
+    {
+      "id": "analysis-003",
+      "adTitle": "Freedom Isn't Free — Stand With Veterans",
+      "advertiser": "Patriots for Liberty Alliance",
+      "dateAnalyzed": "2026-03-22T16:45:00Z",
+      "overallScore": 41,
+      "dimensions": {
+        "hook": 65,
+        "credibility": 22,
+        "emotionalAppeal": 88,
+        "memorability": 30,
+        "shareability": 35
+      },
+      "adText": "They fought for our freedom on battlefields across the world. They came home with scars we can't see and promises that were never kept. Right now, thousands of veterans in our state are waiting months for basic healthcare appointments while bureaucrats in Washington waste billions on programs that don't work. Our veterans didn't wait when America called. Why should they wait now? Jake Morrison served three tours in Afghanistan. He came home to a broken VA system and decided to fix it from the inside. As your next Senator, Jake will cut through the red tape, fire the bureaucrats who failed our heroes, and make sure every veteran gets the care they earned on day one. The career politicians had their chance. It's time for a warrior. Stand with Jake Morrison.",
+      "flags": [
+        {
+          "id": "flag-011",
+          "text": "thousands of veterans in our state are waiting months for basic healthcare appointments",
+          "start": 137,
+          "end": 222,
+          "severity": "high",
+          "dimension": "credibility",
+          "suggestion": "Emotionally powerful but vague. 'Thousands' and 'months' need specific data — VA wait time reports are public. Without numbers, this is vulnerable to fact-checking."
+        },
+        {
+          "id": "flag-012",
+          "text": "bureaucrats in Washington waste billions on programs that don't work",
+          "start": 229,
+          "end": 296,
+          "severity": "high",
+          "dimension": "credibility",
+          "suggestion": "Classic populist claim with zero evidence. Which programs? Which billions? This reads as emotional rhetoric, not policy. High vulnerability to editorial fact-checks."
+        },
+        {
+          "id": "flag-013",
+          "text": "fire the bureaucrats who failed our heroes",
+          "start": 470,
+          "end": 512,
+          "severity": "high",
+          "dimension": "credibility",
+          "suggestion": "Sounds decisive but is legally and practically difficult. A Senator can't directly fire federal employees. Overpromising erodes trust with informed voters."
+        },
+        {
+          "id": "flag-014",
+          "text": "make sure every veteran gets the care they earned on day one",
+          "start": 517,
+          "end": 577,
+          "severity": "medium",
+          "dimension": "credibility",
+          "suggestion": "Aspirational but unrealistic as stated. VA reform is complex and slow. Consider a more specific, achievable first step to maintain credibility."
+        },
+        {
+          "id": "flag-015",
+          "text": "The career politicians had their chance. It's time for a warrior.",
+          "start": 579,
+          "end": 643,
+          "severity": "medium",
+          "dimension": "memorability",
+          "suggestion": "Strong identity framing but may alienate non-military voters. Consider broadening the appeal — 'a leader who understands sacrifice' reaches further than 'a warrior.'"
+        }
+      ]
+    }
+  ]
+}
