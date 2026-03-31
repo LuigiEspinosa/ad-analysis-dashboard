@@ -35,3 +35,10 @@ export interface Analysis {
   adText: string;
   flags: Flag[];
 }
+
+export interface TextSegment {
+  text: string;
+  flag: Flag | null;
+  start: number;
+  end: number;
+}
