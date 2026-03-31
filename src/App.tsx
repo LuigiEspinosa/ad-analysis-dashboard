@@ -1,6 +1,5 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { useAnalyses } from "./hooks/useAnalyses";
-import "./App.css";
 
 const queryClient = new QueryClient();
 
