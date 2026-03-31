@@ -42,3 +42,16 @@ export interface TextSegment {
   start: number;
   end: number;
 }
+
+export interface RadarDataPoint {
+  dimension: string;
+  score: number;
+  fullMark: 100;
+}
+
+export interface ComparisonRadarPoint {
+  dimension: string;
+  scoreA: number;
+  scoreB: number;
+  fullMark: 100;
+}
