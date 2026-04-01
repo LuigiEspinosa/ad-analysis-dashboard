@@ -12,7 +12,7 @@
     <rect x="0" y="0" width="800" height="600" fill="#ffffff"/>
 
     <!-- Title -->
-    <text x="400" y="26" class="title">Languages (Project · 6h 3m)</text>
+    <text x="400" y="26" class="title">Ad Analysis Dashboard (Languages · 6h 3m)</text>
 
     <!-- ── Legend ─────────────────────────────────────────────────────── -->
     <!--
