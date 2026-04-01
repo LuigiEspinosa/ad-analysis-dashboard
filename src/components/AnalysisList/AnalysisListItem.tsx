@@ -5,10 +5,16 @@ import { formatDate } from "@/utils/format";
 interface Props {
   analysis: Analysis;
   isSelected: boolean;
+  isComparing: boolean;
   onClick: () => void;
 }
 
-export function AnalysisListItem({ analysis, isSelected, onClick }: Props) {
+export function AnalysisListItem({
+  analysis,
+  isSelected,
+  isComparing,
+  onClick,
+}: Props) {
   return (
     <button
       onClick={onClick}
@@ -18,7 +24,9 @@ export function AnalysisListItem({ analysis, isSelected, onClick }: Props) {
         "focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2",
         isSelected
           ? "bg-brand-50 dark:bg-brand-950/40 border border-brand-200 dark:border-brand-800"
-          : "border border-transparent hover:bg-gray-100 dark:hover:bg-gray-800/60",
+          : isComparing
+            ? "bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800"
+            : "border border-transparent hover:bg-gray-100 dark:hover:bg-gray-800/60",
       ].join(" ")}
     >
       <div className="flex items-start justify-between gap-2">
@@ -34,7 +42,7 @@ export function AnalysisListItem({ analysis, isSelected, onClick }: Props) {
       <p className="text-xs text-gray-500 dark:text-gray-400 mt-1 truncate">
         {analysis.advertiser}
       </p>
-      <p className="text-xs text-gray-400 dark:text-gray-500 mt-0 5">
+      <p className="text-xs text-gray-400 dark:text-gray-500 mt-0.5">
         {formatDate(analysis.dateAnalyzed)}
       </p>
     </button>

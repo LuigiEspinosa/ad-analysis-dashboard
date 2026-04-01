@@ -8,7 +8,7 @@ interface DashboardStore {
   comparisonMode: boolean;
   comparisonAnalysisId: string | null;
   toggleComparisonMode: () => void;
-  setComparisonAnalsisId: (id: string) => void;
+  setComparisonAnalsisId: (id: string | null) => void;
 }
 
 export const useDashboardStore = create<DashboardStore>((set) => ({
@@ -20,6 +20,9 @@ export const useDashboardStore = create<DashboardStore>((set) => ({
   comparisonMode: false,
   comparisonAnalysisId: null,
   toggleComparisonMode: () =>
-    set((s) => ({ comparisonMode: !s.comparisonMode })),
+    set((s) => ({
+      comparisonMode: !s.comparisonMode,
+      comparisonAnalysisId: s.comparisonMode ? null : s.comparisonAnalysisId,
+    })),
   setComparisonAnalsisId: (id) => set({ comparisonAnalysisId: id }),
 }));

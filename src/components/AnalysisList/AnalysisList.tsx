@@ -4,7 +4,13 @@ import { AnalysisListItem } from "./AnalysisListItem";
 
 export function AnalysisList() {
   const { data, isLoading } = useAnalyses();
-  const { selectedAnalysisId, setSelectedAnalysisId } = useDashboardStore();
+  const {
+    selectedAnalysisId,
+    setSelectedAnalysisId,
+    comparisonMode,
+    comparisonAnalysisId,
+    setComparisonAnalsisId,
+  } = useDashboardStore();
 
   if (isLoading) {
     return (
@@ -19,14 +25,29 @@ export function AnalysisList() {
     );
   }
 
+  const handleClick = (id: string) => {
+    if (!comparisonMode) {
+      setSelectedAnalysisId(id);
+      return;
+    }
+    if (id === selectedAnalysisId) return;
+    setComparisonAnalsisId(id);
+  };
+
   return (
     <nav className="space-y-1 p-2" aria-label="Analysis list">
+      {comparisonMode && (
+        <p className="px-1 pb-1 text-xs text-gray-400 dark:text-gray-500">
+          Select a second analysis to compare
+        </p>
+      )}
       {data?.map((analysis) => (
         <AnalysisListItem
           key={analysis.id}
           analysis={analysis}
           isSelected={analysis.id === selectedAnalysisId}
-          onClick={() => setSelectedAnalysisId(analysis.id)}
+          isComparing={analysis.id === comparisonAnalysisId}
+          onClick={() => handleClick(analysis.id)}
         />
       ))}
     </nav>

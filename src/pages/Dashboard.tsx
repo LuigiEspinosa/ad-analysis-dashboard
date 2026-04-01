@@ -7,6 +7,8 @@ import { useAnalysis } from "@/hooks/useAnalysis";
 import { useDashboardStore } from "@/stores/dashboard.store";
 import { AnalysisList } from "@/components/AnalysisList/AnalysisList";
 import { AnalysisDetail } from "@/components/AnalysisDetail/AnalysisDetail";
+import { ComparisonToggle } from "@/components/Comparison/ComparisonToggle";
+import { ComparisonDetail } from "@/components/Comparison/Comparison/ComparisonDetail";
 
 import SunIcon from "@/components/Icons/SunIcon";
 import MoonIcon from "@/components/Icons/MoonIcon";
@@ -19,14 +21,23 @@ interface Props {
 export function Dashboard({ dark, onToggleDark }: Props) {
   const panelRef = useRef<HTMLElement>(null);
 
+  const {
+    selectedAnalysisId,
+    setSelectedAnalysisId,
+    comparisonMode,
+    comparisonAnalysisId,
+  } = useDashboardStore();
+
   const { data: allAnalyses } = useAnalyses();
-  const { selectedAnalysisId, setSelectedAnalysisId } = useDashboardStore();
   const {
     data: analysis,
     isLoading,
     error,
     refetch,
   } = useAnalysis(selectedAnalysisId);
+  const { data: comparisonAnalysis } = useAnalysis(
+    comparisonMode ? comparisonAnalysisId : null,
+  );
 
   useEffect(() => {
     if (allAnalyses && allAnalyses.length > 0 && selectedAnalysisId === null) {
@@ -69,6 +80,9 @@ export function Dashboard({ dark, onToggleDark }: Props) {
           </button>
         </div>
         <div className="flex-1 overflow-y-auto">
+          <div className="p-2 pb-0">
+            <ComparisonToggle />
+          </div>
           <AnalysisList />
         </div>
       </aside>
@@ -93,7 +107,20 @@ export function Dashboard({ dark, onToggleDark }: Props) {
             </button>
           </div>
         )}
-        {analysis && <AnalysisDetail analysis={analysis} />}
+        {analysis && !comparisonMode && <AnalysisDetail analysis={analysis} />}
+        {analysis && comparisonMode && !comparisonAnalysis && (
+          <div className="flex items-center justify-center h-48">
+            <p className="text-sm text-gray-400 dark:text-gray-500">
+              Select a second analysis from the sidebar to compare
+            </p>
+          </div>
+        )}
+        {analysis && comparisonMode && comparisonAnalysis && (
+          <ComparisonDetail
+            analysisA={analysis}
+            analysisB={comparisonAnalysis}
+          />
+        )}
       </main>
     </div>
   );
