@@ -1,3 +1,6 @@
+import { useRef } from "react";
+import { gsap } from "gsap/gsap-core";
+import { useGSAP } from "@gsap/react";
 import type { Analysis } from "@/types/analysis";
 import { scoreToColorClass } from "@/utils/score";
 import { formatDate } from "@/utils/format";
@@ -15,8 +18,32 @@ export function AnalysisListItem({
   isComparing,
   onClick,
 }: Props) {
+  const buttonRef = useRef<HTMLButtonElement>(null);
+
+  useGSAP(
+    () => {
+      const el = buttonRef.current;
+      if (!el) return;
+
+      const onEnter = () =>
+        gsap.to(el, { scale: 1.015, duration: 0.15, ease: "power2.out" });
+      const onLeave = () =>
+        gsap.to(el, { scale: 1, duration: 0.15, ease: "power2.out" });
+
+      el.addEventListener("mouseenter", onEnter);
+      el.addEventListener("mouseleave", onLeave);
+
+      return () => {
+        el.removeEventListener("mouseenter", onEnter);
+        el.removeEventListener("mouseleave", onLeave);
+      };
+    },
+    { scope: buttonRef },
+  );
+
   return (
     <button
+      ref={buttonRef}
       onClick={onClick}
       aria-current={isSelected ? "true" : undefined}
       className={[

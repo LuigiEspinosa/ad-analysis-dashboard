@@ -9,6 +9,7 @@ import { AnalysisList } from "@/components/AnalysisList/AnalysisList";
 import { AnalysisDetail } from "@/components/AnalysisDetail/AnalysisDetail";
 import { ComparisonToggle } from "@/components/Comparison/ComparisonToggle";
 import { ComparisonDetail } from "@/components/Comparison/Comparison/ComparisonDetail";
+import { LoadingSkeleton } from "@/components/ui/LoadingSkeleton";
 
 import SunIcon from "@/components/Icons/SunIcon";
 import MoonIcon from "@/components/Icons/MoonIcon";
@@ -88,12 +89,7 @@ export function Dashboard({ dark, onToggleDark }: Props) {
       </aside>
 
       <main ref={panelRef} className="p-6 lg:p-8 overflow-y-auto">
-        {isLoading && (
-          <div className="space-y-8 animate-pulse">
-            <div className="h-16 bg-gray-200 dark:bg-gray-700 rounded-xl" />
-            <div className="h-64 bg-gray-200 dark:bg-gray-700 rounded-xl" />
-          </div>
-        )}
+        {isLoading && <LoadingSkeleton />}
         {error && (
           <div className="flex flex-col items-center justify-center h-48 gap-3">
             <p className="text-sm text-gray-500 dark:text-gray-400">

@@ -56,8 +56,16 @@ export function TextViewer({ analysis }: Props) {
           <code className="font-mono">end</code> ) are provided by the dataset
           and may not align exactly with the displayed text.
           <br />
-          See README for a browser console script to double check correct
-          offsets.
+          See{" "}
+          <a
+            href="https://github.com/LuigiEspinosa/ad-analysis-dashboard/blob/main/README.md#notes"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline"
+          >
+            README
+          </a>{" "}
+          for a browser console script to double check correct offsets.
         </p>
       </div>
     </div>
