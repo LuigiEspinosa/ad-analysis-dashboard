@@ -1,4 +1,7 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap/gsap-core";
+import { useGSAP } from "@gsap/react";
+
 import { useAnalyses } from "@/hooks/useAnalyses";
 import { useAnalysis } from "@/hooks/useAnalysis";
 import { useDashboardStore } from "@/stores/dashboard.store";
@@ -14,6 +17,8 @@ interface Props {
 }
 
 export function Dashboard({ dark, onToggleDark }: Props) {
+  const panelRef = useRef<HTMLElement>(null);
+
   const { data: allAnalyses } = useAnalyses();
   const { selectedAnalysisId, setSelectedAnalysisId } = useDashboardStore();
   const {
@@ -28,6 +33,18 @@ export function Dashboard({ dark, onToggleDark }: Props) {
       setSelectedAnalysisId(allAnalyses[0].id);
     }
   }, [allAnalyses, selectedAnalysisId, setSelectedAnalysisId]);
+
+  useGSAP(
+    () => {
+      if (!selectedAnalysisId) return;
+      gsap.fromTo(
+        panelRef.current,
+        { opacity: 0, y: 12 },
+        { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" },
+      );
+    },
+    { scope: panelRef, dependencies: [selectedAnalysisId] },
+  );
 
   return (
     <div className="min-h-screen grid grid-cols-1 lg:grid-cols-[320px_1fr] bg-(--surface-page)">
@@ -56,7 +73,7 @@ export function Dashboard({ dark, onToggleDark }: Props) {
         </div>
       </aside>
 
-      <main className="p-6 lg:p-8 overflow-y-auto">
+      <main ref={panelRef} className="p-6 lg:p-8 overflow-y-auto">
         {isLoading && (
           <div className="space-y-8 animate-pulse">
             <div className="h-16 bg-gray-200 dark:bg-gray-700 rounded-xl" />

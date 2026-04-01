@@ -16,6 +16,9 @@ npm install && npm run dev
 - Tailwind CSS v4
 - TanStack Query
 - Zustand
+- Recharts
+- GSAP
+- Radix UI
 - Vitest + RTL
 
 ## Key Decisions
@@ -35,3 +38,11 @@ This is type-safe. React-rendered, and testable over innearHTML approaches becau
 `selectedFlagId` lives in a Zustand store. `FlagTable` writes it on row click. `TextViewer` reads it to apply highlight ring and scroll. `FlagTable` reads it to scroll its own row. No prop drilling through 4+ levels of component tree.
 
 Context would work but Zustand is cleaner, more performant (no re-renders from context updates), and the store is trivially testeable in isolation.
+
+### Custom SVG Gauge over a library
+
+A 270deg arc gauge animated with GSAP is more visually disntictive than any off-the-shelf component. The score counts up as the arc fills.
+
+### Radix UI Popover custom tooltip
+
+Popover position is genuinely hard near viewport edges. Radix handles collision detection, focus management, and keyboard dismiss.

@@ -1,3 +1,6 @@
+import { useRef } from "react";
+import { gsap } from "gsap/gsap-core";
+import { useGSAP } from "@gsap/react";
 import { scoreToStrokeColor } from "@/utils/score";
 
 interface Props {
@@ -6,6 +9,10 @@ interface Props {
 }
 
 export function ScoreGauge({ score, size = 200 }: Props) {
+  const containerRef = useRef<SVGSVGElement>(null);
+  const arcRef = useRef<SVGCircleElement>(null);
+  const textRef = useRef<SVGTextElement>(null);
+
   const cx = size / 2;
   const cy = size / 2;
   const strokeWidth = 12;
@@ -14,8 +21,32 @@ export function ScoreGauge({ score, size = 200 }: Props) {
   const arcLength = circumference * (270 / 360);
   const fillOffset = arcLength - (arcLength * score) / 100;
 
+  useGSAP(
+    () => {
+      gsap.fromTo(
+        arcRef.current,
+        { strokeDashoffset: arcLength },
+        { strokeDashoffset: fillOffset, duration: 1.2, ease: "power2.out" },
+      );
+
+      const counter = { val: 0 };
+      gsap.to(counter, {
+        val: score,
+        duration: 1.2,
+        ease: "power2.out",
+        onUpdate() {
+          if (textRef.current) {
+            textRef.current.textContent = Math.round(counter.val).toString();
+          }
+        },
+      });
+    },
+    { scope: containerRef, dependencies: [score] },
+  );
+
   return (
     <svg
+      ref={containerRef}
       width={size}
       height={size}
       role="img"
@@ -36,6 +67,7 @@ export function ScoreGauge({ score, size = 200 }: Props) {
       />
       {/* Full arc colored by score, offset determines how much shows */}
       <circle
+        ref={arcRef}
         cx={cx}
         cy={cy}
         r={radius}
@@ -48,6 +80,7 @@ export function ScoreGauge({ score, size = 200 }: Props) {
         transform={`rotate(-225 ${cx} ${cy})`}
       />
       <text
+        ref={textRef}
         x={cx}
         y={cy - 2}
         textAnchor="middle"
