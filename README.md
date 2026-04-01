@@ -2,6 +2,8 @@
 
 A single-page political ad analysis dashboard built for the PharosGraph frontend challenge.
 
+- Live: <https://ad-analysis.cuatro.dev/>
+
 ## Setup
 
 ```shell
@@ -21,31 +23,51 @@ npm install && npm run dev
 - Radix UI
 - Vitest + RTL
 
+## Approach
+
+The dashboard is organized into three explicit layers:
+
+1. A data layer: TanStack Query fetchers wrapping local JSON with simulated latency.
+2. A state layer: Zustand store for selection and sync.
+3. A presentation layer: React components that consume from both.
+
+No component below the organism level imports from the store directly.
+
 ## Key Decisions
 
 ### TanStack Query over useEffect + useState
 
-TanStack Query gives loading/error/stale states, caching, and background refetch semantics with a custom fetcher that wraps the local JSON. The loading skeleton renders for 800ms.
+TanStack Query gives loading/error/stale states, caching, and background refetch semantics with a custom fetcher that wraps the local JSON. The 800ms delay forces the loading skeleton to render same UX as a real API call.
 
-### Segment-based text rendering
+### Segment-based text rendering over innerHTML
 
-Character-position highlights are built by treating every flag boundary as a split point and reducing to a flat segment array. For overlapping flags (not present in this dataset bu handled), the highest-severity flag wins.
+Character-position highlights are built by treating every flag boundary as a split point and reducing to a flat segment array. Each segment renderes as a React element, type-safe, testable, and able to carry typed events handlers. The overlap strategy (highest severity wins) is documented and covered by tests. innerHTML would require sanitization and cannot attach typed handlers.
 
-This is type-safe. React-rendered, and testable over innearHTML approaches because that would require sanitization, cannot attach typed React handlers, and is harder to test.
+### Zustand over Context + useReducer
 
-### Bidrectional flag sync via Zustand
-
-`selectedFlagId` lives in a Zustand store. `FlagTable` writes it on row click. `TextViewer` reads it to apply highlight ring and scroll. `FlagTable` reads it to scroll its own row. No prop drilling through 4+ levels of component tree.
-
-Context would work but Zustand is cleaner, more performant (no re-renders from context updates), and the store is trivially testeable in isolation.
+`selectedFlagId` is the single source of thruth for flag-to-text synchronization. `FlagTable` writes it on row click. `TextViewer` reads it to scroll and highlight. Both components react to the same store slice independently with no prop drilling through 4+ levels.
 
 ### Custom SVG Gauge over a library
 
-A 270deg arc gauge animated with GSAP is more visually disntictive than any off-the-shelf component. The score counts up as the arc fills.
+A 270deg arc gauge animated with GSAP is more visually disntictive than any off-the-shelf component. The arc draws itself on mount and re-animates on anlysis switch using `useGSAP` from `@gsap/react`, the official React integration that handles cleanup and StrictMode correctly (instead of `useLayoutEffect`).
 
 ### Radix UI Popover custom tooltip
 
 Popover position is genuinely hard near viewport edges. Radix handles collision detection, focus management, and keyboard dismiss.
+
+## What I'd Improve with more Time
+
+- Virtualize the flag table and text segments for ads with 50+ flags.
+- Add keyboard nevigation between highlights in the text viewer (Tab key cycles through flagged spans).
+- Persist comparison selections in URL state so the view is shareable.
+- E2E test with Playwright covering the full flag-to-text sync flow.
+- The flag `start`/`end` positions in the provided dataset have minor offsets from the actual text positions. See the [notes](#notes)section below for debugging script.
+
+## Time Spent
+
+[![wakatime](https://wakatime.com/badge/user/97dd1314-45d2-4824-bebb-5db0f6f3baa8/project/b740e2f8-bc5b-46c6-b0ab-6dcd284e9a6f.svg)](https://wakatime.com/badge/user/97dd1314-45d2-4824-bebb-5db0f6f3baa8/project/b740e2f8-bc5b-46c6-b0ab-6dcd284e9a6f)
+
+![Wakatime Dashboard](./public/wakatime_dashboard.svg)
 
 ## Notes
 

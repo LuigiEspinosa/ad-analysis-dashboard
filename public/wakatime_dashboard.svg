@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <style>
+    #waka { -webkit-user-select: none; -webkit-font-smoothing: antialiased; font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+    #waka .title       { font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace; font-size: 16px; fill: #1F77B4; text-anchor: middle; }
+    #waka .legend-text { font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace; font-size: 13px; fill: #1F77B4; }
+    #waka .url-link    { font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace; font-size: 10px; fill: #1F77B4; text-decoration: underline; }
+    #waka .slice       { fill-opacity: .7; stroke: #ffffff; stroke-width: 2; stroke-opacity: .8; }
+  </style>
+
+  <g id="waka">
+    <!-- Background -->
+    <rect x="0" y="0" width="800" height="600" fill="#ffffff"/>
+
+    <!-- Title -->
+    <text x="400" y="26" class="title">Languages (Project · 6h 3m)</text>
+
+    <!-- ── Legend ─────────────────────────────────────────────────────── -->
+    <!--
+      Square 12×12, text starts at x=17
+      Rows spaced 21px, group starts at y=66
+      Format: Language   Xh Xm (XX.X%)
+    -->
+    <g transform="translate(10, 66)">
+      <rect x="0" y="1"  width="12" height="12" fill="#3178c6" fill-opacity=".7"/>
+      <text x="17" y="11.2" class="legend-text">TypeScript   4h 28m (73.8%)</text>
+
+      <rect x="0" y="22" width="12" height="12" fill="#aec7e8" fill-opacity=".7"/>
+      <text x="17" y="32.2" class="legend-text">Other        43m (11.8%)</text>
+
+      <rect x="0" y="43" width="12" height="12" fill="#083fa1" fill-opacity=".7"/>
+      <text x="17" y="53.2" class="legend-text">Markdown     22m (6.1%)</text>
+
+      <rect x="0" y="64" width="12" height="12" fill="#563d7c" fill-opacity=".7"/>
+      <text x="17" y="74.2" class="legend-text">CSS          20m (5.5%)</text>
+
+      <rect x="0" y="85" width="12" height="12" fill="#292929" fill-opacity=".7"/>
+      <text x="17" y="95.2" class="legend-text">JSON         8m (2.2%)</text>
+    </g>
+
+    <!-- ── URL link ────────────────────────────────────────────────────── -->
+    <a href="https://wakatime.com/@cuatro/projects/rewkeleyoq?start=2026-03-25&amp;end=2026-03-31" target="_blank">
+      <text x="400" y="588" class="url-link" text-anchor="middle">wakatime.com/@cuatro/projects/rewkeleyoq?start=2026-03-25&amp;end=2026-03-31</text>
+    </a>
+
+    <!-- ── Donut chart ─────────────────────────────────────────────────── -->
+    <!--
+      Center: (550, 330)  Outer R: 200  Inner r: 120  (inner_radius = 0.6)
+
+      Clockwise from top (270°), screen coords (y-down):
+
+      Slice         %       Δ°       end°    Outer endpoint       Inner endpoint
+      TypeScript  73.8   265.68   175.68   (350.6, 345.1)       (430.3, 339.1)
+      Other       11.8    42.48   218.16   (392.7, 206.4)       (455.6, 255.9)
+      Markdown     6.1    21.96   240.12   (450.4, 156.6)       (490.2, 226.0)
+      CSS          5.5    19.80   259.92   (515.0, 133.1)       (529.0, 211.9)
+      JSON         2.2     7.92   267.84   (542.5, 130.1)       (545.5, 210.1)
+    -->
+
+    <!-- TypeScript (73.8%) — large arc >180° -->
+    <path class="slice" fill="#3178c6"
+      d="M 550.0,130.0
+         A 200,200 0 1,1 350.6,345.1
+         L 430.3,339.1
+         A 120,120 0 1,0 550.0,210.0
+         Z"/>
+
+    <!-- Other (11.8%) -->
+    <path class="slice" fill="#aec7e8"
+      d="M 350.6,345.1
+         A 200,200 0 0,1 392.7,206.4
+         L 455.6,255.9
+         A 120,120 0 0,0 430.3,339.1
+         Z"/>
+
+    <!-- Markdown (6.1%) -->
+    <path class="slice" fill="#083fa1"
+      d="M 392.7,206.4
+         A 200,200 0 0,1 450.4,156.6
+         L 490.2,226.0
+         A 120,120 0 0,0 455.6,255.9
+         Z"/>
+
+    <!-- CSS (5.5%) -->
+    <path class="slice" fill="#563d7c"
+      d="M 450.4,156.6
+         A 200,200 0 0,1 515.0,133.1
+         L 529.0,211.9
+         A 120,120 0 0,0 490.2,226.0
+         Z"/>
+
+    <!-- JSON (2.2%) -->
+    <path class="slice" fill="#292929"
+      d="M 515.0,133.1
+         A 200,200 0 0,1 542.5,130.1
+         L 545.5,210.1
+         A 120,120 0 0,0 529.0,211.9
+         Z"/>
+  </g>
+</svg>
