@@ -65,7 +65,7 @@ Popover position is genuinely hard near viewport edges. Radix handles collision 
 
 ## Time Spent
 
-[![wakatime](https://wakatime.com/badge/user/97dd1314-45d2-4824-bebb-5db0f6f3baa8/project/b740e2f8-bc5b-46c6-b0ab-6dcd284e9a6f.svg)](https://wakatime.com/badge/user/97dd1314-45d2-4824-bebb-5db0f6f3baa8/project/b740e2f8-bc5b-46c6-b0ab-6dcd284e9a6f)
+[![wakatime](https://wakatime.com/badge/user/97dd1314-45d2-4824-bebb-5db0f6f3baa8/project/b740e2f8-bc5b-46c6-b0ab-6dcd284e9a6f.svg)](https://wakatime.com/@cuatro/projects/rewkeleyoq?start=2026-03-25&end=2026-03-31)
 
 ![Wakatime Dashboard](./public/wakatime_dashboard.svg)
 
