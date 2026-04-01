@@ -49,6 +49,16 @@ export function TextViewer({ analysis }: Props) {
             />
           ))}
         </p>
+
+        <p className="mt-4 text-xs text-gray-400 dark:text-gray-500 border-t border-(--surface-border) pt-3">
+          <span className="font-medium">Dev note:</span> Flag positions ({" "}
+          <code className="font-mono">start</code> /{" "}
+          <code className="font-mono">end</code> ) are provided by the dataset
+          and may not align exactly with the displayed text.
+          <br />
+          See README for a browser console script to double check correct
+          offsets.
+        </p>
       </div>
     </div>
   );

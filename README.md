@@ -51,7 +51,7 @@ Popover position is genuinely hard near viewport edges. Radix handles collision 
 
 ### Flag position debugging
 
-The character positions (`start`/`end`) in `src/data/analyses.json` were provided and may not align exactly with the `adText` string. If highlights appear offset, run this in the browser console to check the positions.
+The character positions (`start`/`end`) in `src/data/analyses.json` were provided by the dataset and may not align exactly with the `adText` string. If highlights appear offset, run this in the browser console to check the positions.
 
 ```js
 const analyses = await fetch('/src/data/analyses.json').then(r => r.json());
