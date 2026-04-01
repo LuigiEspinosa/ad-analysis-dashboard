@@ -5,6 +5,7 @@ import { scoreToColorClass } from "@/utils/score";
 import { DimensionRadar } from "../DimensionRadar/DimensionRadar";
 import { FlagTable } from "../FlagTable/FlagTable";
 import { ScoreGauge } from "../ScoreGauge/ScoreGauge";
+import { TextViewer } from "../TextViewer/TextViewer";
 
 interface Props {
   analysis: Analysis;
@@ -48,9 +49,9 @@ export function AnalysisDetail({ analysis }: Props) {
         <FlagTable flags={analysis.flags} />
       </section>
 
-      <div className="h-32 rounded-xl border border-dashed border-(--surface-border) flex items-center justify-center text-sm text-gray-400 dark:text-gray-500">
-        TODO: Annotated text viewer
-      </div>
+      <section aria-label="Ad Text">
+        <TextViewer analysis={analysis} />
+      </section>
     </div>
   );
 }

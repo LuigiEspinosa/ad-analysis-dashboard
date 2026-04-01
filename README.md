@@ -46,3 +46,20 @@ A 270deg arc gauge animated with GSAP is more visually disntictive than any off-
 ### Radix UI Popover custom tooltip
 
 Popover position is genuinely hard near viewport edges. Radix handles collision detection, focus management, and keyboard dismiss.
+
+## Notes
+
+### Flag position debugging
+
+The character positions (`start`/`end`) in `src/data/analyses.json` were provided and may not align exactly with the `adText` string. If highlights appear offset, run this in the browser console to check the positions.
+
+```js
+const analyses = await fetch('/src/data/analyses.json').then(r => r.json());
+const a = analyses.analyses[0];
+
+a.flags.forEach(f => {
+  const start = a.adText.indexOf(f.text);
+  const end = start + f.text.length;
+  console.log(`${f.id}: start=${start}, end=${end} (JSON has ${f.start}/${f.end})`);
+})
+```
