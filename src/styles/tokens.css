@@ -1,0 +1,50 @@
+@import "@fontsource-variable/wix-madefor-display/wght.css";
+
+@theme {
+  /* Brand */
+  --color-brand-50: #eef0ff;
+  --color-brand-100: #e0e3ff;
+  --color-brand-200: #c7ccff;
+  --color-brand-300: #a3acff;
+  --color-brand-400: #7a87ff;
+  --color-brand-500: #4d65ff;
+  --color-brand-600: #3651f5;
+  --color-brand-700: #2840e3;
+  --color-brand-800: #1e32c4;
+  --color-brand-900: #1a2d9a;
+  --color-brand-950: #111c65;
+
+  /* Score Colors */
+  --color-score-good: #10b981;
+  --color-score-medium: #f59e0b;
+  --color-score-poor: #ef4444;
+
+  /* Severity Colors */
+  --color-severity-high: #ef4444;
+  --color-severity-medium: #f59e0b;
+  --color-severity-low: #eab308;
+
+  /* Typography */
+  --font-sans: "Wix Madefor Display", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, "Cascadia Code", "Fira Code", monospace;
+
+  /* Shadows */
+  --shadow-card: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --shadow-popover:
+    0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-ring: 0 0 0 2px #4d65ff;
+}
+
+:root {
+  --surface-page: #ffffff;
+  --surface-sidebar: #f9fafb;
+  --surface-card: #f3f4f6;
+  --surface-border: #e5e7eb;
+}
+
+.dark {
+  --surface-page: #030712;
+  --surface-sidebar: #111827;
+  --surface-card: #1f2937;
+  --surface-border: #374151;
+}
