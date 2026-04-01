@@ -1,8 +1,10 @@
 import type { Analysis } from "@/types/analysis";
-import { ScoreGauge } from "../ScoreGauge/ScoreGauge";
-import { DimensionRadar } from "../DimensionRadar/DimensionRadar";
 import { formatDate } from "@/utils/format";
 import { scoreToColorClass } from "@/utils/score";
+
+import { DimensionRadar } from "../DimensionRadar/DimensionRadar";
+import { FlagTable } from "../FlagTable/FlagTable";
+import { ScoreGauge } from "../ScoreGauge/ScoreGauge";
 
 interface Props {
   analysis: Analysis;
@@ -42,9 +44,9 @@ export function AnalysisDetail({ analysis }: Props) {
         </div>
       </section>
 
-      <div className="h-48 rounded-xl border border-dashed border-(--surface-border) flex items-center justify-center text-sm text-gray-400 dark:text-gray-500">
-        TODO: Risk flags table
-      </div>
+      <section aria-label="Risk flags">
+        <FlagTable flags={analysis.flags} />
+      </section>
 
       <div className="h-32 rounded-xl border border-dashed border-(--surface-border) flex items-center justify-center text-sm text-gray-400 dark:text-gray-500">
         TODO: Annotated text viewer
