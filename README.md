@@ -51,7 +51,7 @@ Character-position highlights are built by treating every flag boundary as a spl
 
 A 270deg arc gauge animated with GSAP is more visually disntictive than any off-the-shelf component. The arc draws itself on mount and re-animates on anlysis switch using `useGSAP` from `@gsap/react`, the official React integration that handles cleanup and StrictMode correctly (instead of `useLayoutEffect`).
 
-### Radix UI Popover custom tooltip
+### Radix UI Popover over a custom tooltip
 
 Popover position is genuinely hard near viewport edges. Radix handles collision detection, focus management, and keyboard dismiss.
 
